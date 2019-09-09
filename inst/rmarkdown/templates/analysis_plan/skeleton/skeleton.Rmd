@@ -8,7 +8,7 @@ affiliation:
   - "\\textsuperscript{1}Telethon Kids Institute, Adaptive Health Intelligence"
   - "\\textsuperscript{2}Other"
 date: "`r format(Sys.time(), '%d %B %Y')`"
-version: "1.0"
+version: "Version 1.0"
 output: 
   bookdown::pdf_document2:
     template: assets/templates/sap_latex.tex
@@ -16,13 +16,30 @@ documentclass: scrreprt
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
 ```
 
-# Heading 1
 
-## Heading 2
-
-### Heading 3
+# Background and Rationale
 
 Text
+
+# Study Objectives
+
+## Primary Objective
+
+## Secondary Objectives
+
+# Statistical Methods
+
+Text
+
+Figure \@ref(fig:a)
+
+```{r a, fig.cap = "A figure"}
+plot(rnorm(10), rnorm(10))
+```
