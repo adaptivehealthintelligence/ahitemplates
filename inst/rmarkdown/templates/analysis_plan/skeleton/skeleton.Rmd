@@ -1,0 +1,28 @@
+---
+title: "Adaptive Health Intelligence"
+subtitle: "Statistical Analysis Plan Template"
+author:
+  - "Author 1\\textsuperscript{1}"
+  - "Author 2\\textsuperscript{2}"
+affiliation:
+  - "\\textsuperscript{1}Telethon Kids Institute, Adaptive Health Intelligence"
+  - "\\textsuperscript{2}Other"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+version: "1.0"
+output: 
+  bookdown::pdf_document2:
+    template: assets/templates/sap_latex.tex
+documentclass: scrreprt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+Text

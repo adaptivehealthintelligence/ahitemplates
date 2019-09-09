@@ -1,0 +1,16 @@
+Package: ahitemplates
+Title: Templates for Adaptive Health Intelligence Documents
+Version: 0.0.1
+Authors@R: person("James", "Totterdell", email = "james.totterdell@telethonkids.org.au", role = c("aut", "cre"))
+Date: 2019-09-09
+Description: A set of templates which incorporate the style
+  and theme for Adaptive Health Intelligence unit.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Depends:
+  R (>= 3.5.0)
+Suggests:
+    rmarkdown (>= 1.11)
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1
