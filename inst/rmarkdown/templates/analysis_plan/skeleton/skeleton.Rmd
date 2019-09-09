@@ -1,14 +1,15 @@
 ---
-title: "Adaptive Health Intelligence"
-subtitle: "Statistical Analysis Plan Template"
+title: "Statistical Analysis Plan"
+subtitle: "TRiAL: A Fake Clinical Trial"
 author:
   - "Author 1\\textsuperscript{1}"
   - "Author 2\\textsuperscript{2}"
 affiliation:
   - "\\textsuperscript{1}Telethon Kids Institute, Adaptive Health Intelligence"
   - "\\textsuperscript{2}Other"
-date: "`r format(Sys.time(), '%d %B %Y')`"
-version: "Version 1.0"
+date: "Date: `r format(Sys.time(), '%d %B %Y')`"
+version: "Version: 1.0"
+trialnum: "Registration number: RGS00000"
 output: 
   bookdown::pdf_document2:
     template: assets/templates/sap_latex.tex

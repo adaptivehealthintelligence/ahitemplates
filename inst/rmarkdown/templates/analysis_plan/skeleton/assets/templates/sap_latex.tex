@@ -278,21 +278,55 @@ $endif$
   }}
 ]{titlepage.logos}
 
-\titlehead{%
-  \makebox[0pt][l]{\smash{%
-    \parbox[t][\dimexpr\textheight-\ht\strutbox\relax][t]{\textwidth}{%
-      \includegraphics[width=3cm]{assets/images/waves-green-lighter}\hfill%
-  }}}}
+
 
 
 $for(header-includes)$
 $header-includes$
 $endfor$
 
+\newcommand{\titledate}[2][2.5in]{%
+  \noindent%
+  \begin{tabular}{@{}p{#1}@{}}
+    \\ \hline \\[-.75\normalbaselineskip]
+    #2
+  \end{tabular} \hspace{1in}
+  \begin{tabular}{@{}p{#1}@{}}
+    \\ \hline \\[-.75\normalbaselineskip]
+    Date
+  \end{tabular}
+}
+
 \begin{document}
 $if(title)$
 \AddLayersToPageStyle{empty}{titlepage.logos}% add the layer to pagestyle empty
-\maketitle
+
+\begin{titlepage}
+
+  \makebox[0pt][l]{\smash{%
+    \parbox[t][\dimexpr\textheight-\ht\strutbox\relax][t]{\textwidth}{%
+      \includegraphics[width=3cm]{assets/images/waves-green-lighter}\hfill%
+  }}}
+
+  \begin{center}
+    {\sectfont\Huge $title$\par}\vspace{3\baselineskip}
+    {\huge $subtitle$\par}\vspace{3\baselineskip}
+  \end{center}
+  {\large $date$\par}\vspace{0.5\baselineskip}
+  {\large $version$\par}\vspace{0.5\baselineskip}
+  {\large $if(trialnum)$$trialnum$$endif$\par}\vspace{0.5\baselineskip}
+  {\large $if(author)$
+    $for(author)$
+      $author$$sep$\\
+    $endfor$
+  $endif$\par}\vspace{2\baselineskip}\vfill
+
+  \titledate{Statistician}
+  \vspace{4\baselineskip}
+  \titledate{CPI}
+
+\end{titlepage}
+
 \RemoveLayersFromPageStyle{empty}{titlepage.logos}% remove the layer
 $endif$
 $if(abstract)$
@@ -322,10 +356,6 @@ $if(lof)$
 \listoffigures
 $endif$
 $body$
-
-$if(version)$
-  $version$
-$endif$
 
 $if(natbib)$
 $if(bibliography)$
