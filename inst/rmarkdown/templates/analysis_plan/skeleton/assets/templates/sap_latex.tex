@@ -27,6 +27,8 @@ $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+\usepackage{vhistory}
+\usepackage[affil-it]{authblk}
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
@@ -116,7 +118,7 @@ $if(natbib)$
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
-\usepackage$if(biblio-style)$[style=$biblio-style$]$endif${biblatex}
+\usepackage[backend=bibtex$if(biblio-style)$,style=$biblio-style$$endif$]{biblatex}
 $if(biblatexoptions)$\ExecuteBibliographyOptions{$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$}$endif$
 $for(bibliography)$
 \addbibresource{$bibliography$}
@@ -255,6 +257,13 @@ $else$
   \preauthor{}\postauthor{}
   $endif$
 $endif$
+
+$if(affiliation)$
+  \affil{$for(affiliation)$$affiliation$$sep$ \\ $endfor$}
+$else$
+  \affil{}
+$endif$
+
 $if(date)$
   $if(compact-title)$
   \predate{\centering\large\emph}
@@ -294,7 +303,7 @@ $endfor$
   \begin{tabular}{@{}p{#1}@{}}
     \\ \hline \\[-.75\normalbaselineskip]
     Date
-  \end{tabular}
+  \end{tabular}\vspace{4\baselineskip}
 }
 
 \begin{document}
@@ -317,13 +326,17 @@ $if(title)$
   {\large $if(trialnum)$$trialnum$$endif$\par}\vspace{0.5\baselineskip}
   {\large $if(author)$
     $for(author)$
-      $author$$sep$\\
+      $author$$sep$,
     $endfor$
-  $endif$\par}\vspace{2\baselineskip}\vfill
+  $endif$\par}\vspace{0.5\baselineskip}
+  {\large\$if(affiliation)$
+    $for(affiliation)$
+      \textit{$affiliation$}$sep$\\
+    $endfor$
+  $endif$\par}\vspace{10\baselineskip}
 
   \titledate{Statistician}
-  \vspace{4\baselineskip}
-  \titledate{CPI}
+  \titledate{CPI}\vfill
 
 \end{titlepage}
 
@@ -355,6 +368,7 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+
 $body$
 
 $if(natbib)$
@@ -367,13 +381,13 @@ $else$
 $endif$
 $endif$
 \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+$endif$
 
-$endif$
-$endif$
 $if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
+\printbibliography$if(biblio-title)$[heading=bibintoc,title=$biblio-title$]$endif$
 $endif$
+
 $for(include-after)$
 $include-after$
 
