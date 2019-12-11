@@ -11,6 +11,22 @@ affiliation:
 date: "Date: `r format(Sys.time(), '%d %B %Y')`"
 version: "Version: 1.0"
 trialnum: "Registration number: RGS00000"
+vhist:
+- num: 0.1
+  date: "2019/12/02"
+  initial: "AA"
+  comment: "Created"
+- num: 0.2
+  date: "2019/12/10"
+  initial: "BB"
+  comment: > 
+    Edited one of the sections. 
+    Made a whole heap of other changes 
+    just to get an artifically long comment. 
+    Still more  changes, keep going etc.
+    Can make the comment as long as necessary.
+lot: yes
+lof: yes
 output: 
   bookdown::pdf_document2:
     template: assets/templates/sap_latex.tex
@@ -57,6 +73,10 @@ The trial hypotheses should be stated as these provide information on the framew
 
 ### Secondary Objectives
 
+## Definitions
+
+Define any non-standard variables or quantitie, their units, and how they are derived.
+
 # Study Design
 
 ## Type
@@ -66,6 +86,16 @@ This can influence many aspects such as methods used, risk of bias, trial conduc
 For example, factorial or adaptive designs can involve more complex methods, analyses, and interpretations than parallel group superiority trials. 
 Although most trials use equal randomisation (i.e. 1:1 for two groups), it is still important to provide the allocation ratio. 
 For drug trials, specifying the phase of the trial (I-IV) may also be relevant.
+
+## Outcomes
+
+Define outcomes and how they relate to objectives.
+
+### Primary outcomes
+
+
+### Secondary outcomes
+
 
 ## Randomisation
 
@@ -77,7 +107,7 @@ Reference to where this information is stored should be provided in the SAP.
 This is to protect against predictability of the randomisation sequence by those providing clinical input to the SAP. 
 This allows the statistician executing the SAP to identify stratification factors for use according to ICH E9.
 
-## Sample Size
+## Sample size
 
 The sample size calculation may be included in full in the SAP or a reference to the sample size calculation in the protocol or other document may be provided. 
 The sample size calculation is an important piece of information for every trial as it determines how many patients are required in the primary analysis to ensure the trial is adequately powered to detect a clinically important difference.
@@ -98,7 +128,8 @@ Some CONSORT diagrams provide details of the number of patients screened followe
 
 Information included within a CONSORT flow diagram displays the progress of all participants through the trial. 
 The CONSORT guidelines say that “you must complete a flow diagram in order to be compliant with the CONSORT 2010 standard.” 
-They provide a CONSORT flow diagram template that can be used and adapted to create a trial specific flow diagram. All necessary information that is displayed in a CONSORT flow diagram should be listed in the SAP so it is clear where the patient throughput will begin to be summarised and how, specific follow-up time points that will be presented along with information on withdrawals and loss to follow up. 
+They provide a CONSORT flow diagram template that can be used and adapted to create a trial specific flow diagram. 
+All necessary information that is displayed in a CONSORT flow diagram should be listed in the SAP so it is clear where the patient throughput will begin to be summarised and how, specific follow-up time points that will be presented along with information on withdrawals and loss to follow up. 
 Alternatively, a study specific CONSORT flow diagram template can be included in the SAP highlighting the information that will be collected.
 
 ## Withdrawal
@@ -129,7 +160,26 @@ Any factors on which the randomisation has been stratified or minimised should b
 ## Analysis of primary outcome
 
 
+## Secondary analyses
+
+
+## Interim analyses
+
+
 ## Missing data
 
 
 ## Software
+
+# Analysis Report
+
+May wish to include example tables or figures
+
+```{r tab}
+knitr::kable(data.frame(a = 1:3, b = 4:6), caption = "A table.", booktabs = TRUE)
+```
+
+
+```{r fig, fig.cap="A figure."}
+hist(rnorm(1000), breaks = 50)
+```
