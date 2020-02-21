@@ -27,6 +27,8 @@ $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+\usepackage{vhistory}
+\usepackage[affil-it]{authblk}
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
@@ -116,7 +118,7 @@ $if(natbib)$
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
 $endif$
 $if(biblatex)$
-\usepackage$if(biblio-style)$[style=$biblio-style$]$endif${biblatex}
+\usepackage[backend=bibtex$if(biblio-style)$,style=$biblio-style$$endif$]{biblatex}
 $if(biblatexoptions)$\ExecuteBibliographyOptions{$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$}$endif$
 $for(bibliography)$
 \addbibresource{$bibliography$}
@@ -138,6 +140,10 @@ $if(verbatim-in-note)$
 $endif$
 $if(tables)$
 \usepackage{longtable,booktabs}
+$endif$
+
+$if(vhist)$
+\usepackage{vhistory}
 $endif$
 
 \usepackage{graphicx}
@@ -255,6 +261,13 @@ $else$
   \preauthor{}\postauthor{}
   $endif$
 $endif$
+
+$if(affiliation)$
+  \affil{$for(affiliation)$$affiliation$$sep$ \\ $endfor$}
+$else$
+  \affil{}
+$endif$
+
 $if(date)$
   $if(compact-title)$
   \predate{\centering\large\emph}
@@ -278,21 +291,59 @@ $endif$
   }}
 ]{titlepage.logos}
 
-\titlehead{%
-  \makebox[0pt][l]{\smash{%
-    \parbox[t][\dimexpr\textheight-\ht\strutbox\relax][t]{\textwidth}{%
-      \includegraphics[width=3cm]{assets/images/waves-green-lighter}\hfill%
-  }}}}
+
 
 
 $for(header-includes)$
 $header-includes$
 $endfor$
 
+\newcommand{\titledate}[2][2.5in]{%
+  \noindent%
+  \begin{tabular}{@{}p{#1}@{}}
+    \\ \hline \\[-.75\normalbaselineskip]
+    #2
+  \end{tabular} \hspace{1in}
+  \begin{tabular}{@{}p{#1}@{}}
+    \\ \hline \\[-.75\normalbaselineskip]
+    Date
+  \end{tabular}\vspace{4\baselineskip}
+}
+
 \begin{document}
 $if(title)$
 \AddLayersToPageStyle{empty}{titlepage.logos}% add the layer to pagestyle empty
-\maketitle
+
+\begin{titlepage}
+
+  \makebox[0pt][l]{\smash{%
+    \parbox[t][\dimexpr\textheight-\ht\strutbox\relax][t]{\textwidth}{%
+      \includegraphics[width=3cm]{assets/images/waves-green-lighter}\hfill%
+  }}}
+
+  \begin{center}
+    {\sectfont\Huge $title$\par}\vspace{3\baselineskip}
+    {\huge $subtitle$\par}\vspace{3\baselineskip}
+  \end{center}
+  {\large $date$\par}\vspace{0.5\baselineskip}
+  {\large $version$\par}\vspace{0.5\baselineskip}
+  {\large $if(trialnum)$$trialnum$$endif$\par}\vspace{0.5\baselineskip}
+  {\large $if(author)$
+    $for(author)$
+      $author$$sep$,
+    $endfor$
+  $endif$\par}\vspace{0.5\baselineskip}
+  {\large\$if(affiliation)$
+    $for(affiliation)$
+      \textit{$affiliation$}$sep$\\
+    $endfor$
+  $endif$\par}\vspace{10\baselineskip}
+
+  \titledate{Statistician}
+  \titledate{CPI}\vfill
+
+\end{titlepage}
+
 \RemoveLayersFromPageStyle{empty}{titlepage.logos}% remove the layer
 $endif$
 $if(abstract)$
@@ -304,8 +355,16 @@ $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
+$if(vhist)$
+\begin{versionhistory}
+  $for(vhist)$
+    \vhEntry{$vhist.num$}{$vhist.date$}{$vhist.initial$}{$vhist.comment$}
+  $endfor$
+\end{versionhistory}
+$endif$
+
 $if(toc)$
 {
 $if(colorlinks)$
@@ -321,11 +380,8 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
-$body$
 
-$if(version)$
-  $version$
-$endif$
+$body$
 
 $if(natbib)$
 $if(bibliography)$
@@ -337,13 +393,13 @@ $else$
 $endif$
 $endif$
 \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+$endif$
+$endif$
 
-$endif$
-$endif$
 $if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
+\printbibliography$if(biblio-title)$[heading=bibintoc,title=$biblio-title$]$endif$
 $endif$
+
 $for(include-after)$
 $include-after$
 
