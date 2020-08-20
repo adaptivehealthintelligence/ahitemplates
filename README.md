@@ -6,7 +6,7 @@ Templates created to incorporate styling themes relevant to the Adaptive Health 
 
 ```
 if(!requireNamespace("devtools")) install.packages("devtools")
-devtools::install_github("jatotterdell/ahitemplates")
+devtools::install_github(" adaptivehealthintelligence/ahitemplates")
 ```
 
 ### Creating a document from template
