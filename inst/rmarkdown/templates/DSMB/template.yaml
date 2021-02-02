@@ -1,0 +1,4 @@
+name: AHI DSMB Report
+description: >
+   Template for creating a DSMB report.
+create_dir: FALSE

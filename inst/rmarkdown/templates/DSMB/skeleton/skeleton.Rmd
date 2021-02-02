@@ -1,0 +1,254 @@
+---
+title:  |
+  | ![](logo.jpg){height=2in}\vspace{2cm}
+  | Report for the Data and Safety Monitoring Board\vspace{2cm}
+subtitle: NAME SHORT - NAME LONG
+date: |
+  | DATE
+  | Report Number:
+output: 
+  bookdown::pdf_document2:
+    toc: no
+    fig_align: center
+    fig_height: 4
+    fig_width: 6
+    latex_engine: xelatex
+    keep_tex: true
+    includes:
+      in_header: preamble.tex
+fontsize: 11pt
+link-citations: true
+abstract: |
+  [//]: # NOTE: Content here will appear before the ToC
+  \clearpage
+  \pagenumbering{arabic}
+  ```{r, echo=FALSE}
+  dsmb_report <- tibble::tribble(
+    ~ Title, ~ Summary,
+    "PROTOCOL TITLE", "xxx",
+    "PROTOCOL NUMBER", "xxx",
+    "PROTOCOL VERSION", "xxx",
+    "COORDINATING PRINCIPAL\nINVESTIGATORS", "xxx",
+    "MEETING DATE", "xxx",
+    "DATE REPORT", "xxx",
+    "DATA CUTOFF DATE", "xxx",
+    "DATE OF LAST DATA REVIEW", "xxx",
+    "PREPARED BY", "xxx"
+  )
+  kableExtra::column_spec(
+    kableExtra::column_spec(kableExtra::kable_styling(
+      knitr::kable(dplyr::mutate_all(dsmb_report, kableExtra::linebreak), "latex", booktabs = TRUE, longtable = TRUE, col.names = NULL, escape = FALSE) ),
+    1, bold = TRUE),
+  2, width = "10cm")
+  ```
+  \clearpage
+---
+
+\clearpage
+
+\tableofcontents
+
+\clearpage
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+  warning = FALSE
+)
+
+library(tidyverse)
+library(kableExtra)
+library(flextable)
+
+summary_table <- function(tab) {
+  kable(tab, booktabs = TRUE, longtable = TRUE, col.names = NULL, escape = FALSE) %>%
+  kable_styling() %>%
+  column_spec(1, bold = TRUE) %>%
+  column_spec(2, width = "10cm")
+}
+```
+
+# Executive Summary
+
+```{r}
+exec_summary <- tribble(
+  ~ `Title`, ~ `Summary`,
+  "REPORT OVERVIEW", paste0(
+    "This report reviews enrolment and safety data available in the study database as of xxxx.",
+    "Summary tables are provided in the body of the report.",
+    "Additional tables and figures referenced in the report are provided in the Appendices."
+  ),
+  "STUDY SITE STATUS", "Two of the 3 planned study sites have been activated.",
+  "ENROLLMENT STATUS", "xxx subjects have been screened and xxx have been randomised.",
+  "SUBJECT STATUS", "Of the xxx participants randomised, xx are no longer continuing. X withdrew, X died.",
+  "STOPPING RULES", "No stopping rules have been met",
+  "SAFETY SUMMARY", "No serious adverse events have occurred. xxx adverse events occurred.",
+  "PROTOCOL DEVIATIONS", "xxx deviations have occurred. The reasons relate to...",
+  "QUALITY MANAGEMENT", "Quality checks performed...."
+)
+summary_table(exec_summary)
+```
+
+\clearpage
+
+# Protocol Synopsis
+
+```{r}
+proto_synopsis <- tribble(
+  ~ `Title`, ~ `Summary`,
+  "TITLE", "xxx",
+  "BACKGROUND", "xxx",
+  "PRIMARY OUTCOME", "xxx",
+  "SECONDARY OUTCOMES", paste0(
+    "\\begin{enumerate}",
+    "[leftmargin=0cm,itemindent=.5cm,labelindent=0pt,nosep]",
+    "\\item Outcome 1",
+    "\\item Outcome 2",
+    "\\end{enumerate}"),
+  "STUDY DESIGN", "xxx",
+  "INTERVENTIONS", paste0(
+    "Domain A:",
+    "\\begin{enumerate}",
+    "\\item Control - ",
+    "\\item Intervention - ",
+    "\\end{enumerate}",
+    "Domain B:",
+    "\\begin{enumerate}[nolistsep]",
+    "\\item Control - ",
+    "\\item Intervention - ",
+    "\\end{enumerate}"),
+  "STUDY DURATION", "xxx",
+  "SAMPLE SIZE", "xxx",
+  "INCLUSION CRITERIA", paste0(
+    "\\begin{enumerate}",
+    "[leftmargin=0cm,itemindent=.5cm,labelindent=0pt,nosep]",
+    "\\item Criteria 1",
+    "\\item Criteria 2",
+    "\\end{enumerate}"),
+  "EXCLUSION CRITERIA", paste0(
+    "\\begin{enumerate}",
+    "[leftmargin=0cm,itemindent=.5cm,labelindent=0pt,nosep]",
+    "\\item Criteria 1",
+    "\\item Criteria 2",
+    "\\end{enumerate}"),
+  "BLINDING", "xxx",
+  "RANDOMISATION", "xxx",
+  "ANALYSIS", "xxx"
+)
+summary_table(proto_synopsis)
+```
+
+\clearpage
+
+# Report Overview
+
+The purpose of this report is to review cumulative enrolment, data quality, and safety data for the subjects enrolled in the ASCOT study.
+This report reflects data from the study database as of [DATE].
+Within the body of the report are summary tables of enrolment, demographic characteristics, and adverse events.
+Additional tables, listings, and figures referenced in this report are provided in Appendices.
+There have been [Insert number of meetings] DSMB meetings for this study, and the last review was on [DATE].
+
+*Summarise what the recommendations regarding the trial were following the last DSMB meeting.*
+
+Readers of this report are asked to maintain the confidentiality of the information provided in this report.
+
+\clearpage
+
+# Response to DSMB Recommendations
+
+*Identify DSMB recommendations/requests from the last meeting and clarify how those requests have been handled in the report and/or elsewhere.* *If this is the first DSMB meeting for this protocol or no previous recommendations/requests were made, indicate as such in this section.* *Doing so will provide a future reminder to the author who is likely to use the previous report as a starting point for the subsequent report.*
+
+\clearpage
+
+# Enrolment Status
+
+*Describe enrolment and provide a summary table (see example below).* *Provide enrolment statistics by site if the study involves multiple sites.* *If the study is enrolling, provide the subject accrual target and estimated time to completion of enrolment.* *A figure showing expected/planned versus actual enrolment may be helpful (see example on next page).*
+
+FLOWCHART
+
+CUMULATIVE ENROLMENT OVER TIME
+
+ENROLMENT BY STUDY SITE
+
+\clearpage
+
+# Participant Status
+
+*Describe where patients are in the study in relation to major milestones, such as the number of subjects who have completed day 1, the number on treatment, completed day 28, and the final study visit.* *A summary table providing the study milestones and the number of subjects who have completed those milestones is recommended.* *Also, provide the number of subjects who were terminated and the reason for their termination, such as voluntary withdrawal, death, lost to follow-up, adverse event, or completed the protocol.* *A summary table of subject disposition is also recommended.*
+
+*It is important to distinguish between subjects who withdrew early from the study and those who discontinued treatment but may or may not still be followed-up.*
+
+\clearpage
+
+# Demographics
+
+*Describe the demographic characteristics (age, gender and ethnicity) and key baseline characteristics of enrolled subjects (if appropriate). Provide a summary table or a listing of the data. Listings are preferable over summary tables if only a few subjects have been enrolled. However, avoid listing any information that could potentially lead to the identification of a participant.*
+
+\clearpage
+
+# Safety
+
+## Adverse Events
+
+*Summarize or list the adverse events (AEs) that have occurred since the previous DSMB report and over the course of the trial. Provide information on severity and relatedness to treatment and study procedures (see an example of a summary table below). Please ensure that categories summarized match those in the protocol. For instance related/unrelated vs. the 5 category delineation.*
+
+*If closed report, stratify by treatment group*.
+
+```{r}
+tab <- tribble(
+  ~ Topic, ~ ` `, ~ `Treatment A`, ~ `Treatment B`, ~ Total,
+  "AEs", "Total", 15, 16, 31,
+  "Severity", "Mild", 10, 10, 20,
+  "Severity", "Moderate", 5, 5, 10,
+  "Severity", "Severe", 0, 1, 1,
+  "Relatedness", "Unrelated", 10, 10, 20,
+  "Relatedness", "Unlikely", 5, 5, 10,
+  "Relatedness", "Possible", 0, 0, 0,
+  "Relatedenss", "Probable", 0, 0, 0,
+  "Relatedness", "Definite", 0, 1, 1
+)
+kable(tab[, -1], booktabs = TRUE, caption = "Summary of adverse events (AEs).") %>%
+  kable_styling() %>%
+  pack_rows("Number of AEs by severity", 2, 4) %>%
+  pack_rows("Number of AEs by relatedness", 5, 9)
+```
+
+| Participant ID | Diagnosis | Event | Date | Serious | Severity | Outcome    | Relatedness |
+|----------------|-----------|-------|------|---------|----------|------------|-------------|
+| Sxxxxx         |           |       |      | No      | Mild     | Unresolved | Unrelated   |
+| Sxxxxx         |           |       |      | No      | Moderate | Resolved   | Possible    |
+| *Sxxxxx*       |           |       |      | *Yes*   | *Severe* | *Resolved* | *Definite*  |
+
+: Adverse events listing. AE's occurring since last DMSB report highlighted. SAE's italicised.
+
+## Serious Adverse Events
+
+*Summarize or list all serious adverse events (SAEs) that have occurred since the previous DSMB report and over the course of the trial.*
+
+| Participant ID | Diagnosis | Event | Date | Severity | Outcome  | Relatedness |
+|----------------|-----------|-------|------|----------|----------|-------------|
+| Sxxxxxx        |           |       |      | Severe   | Resolved | Definite    |
+
+\clearpage
+
+# Outcomes
+
+## Primary Outcome
+
+
+
+## Secondary Outcomes
+
+
+
+## Safety Outcomes
+
+
+\clearpage
+
+# Appendix A: Additional Figures {.unnumbered}
+
+\clearpage
+
+# Appendix B: Additional Documentation {.unnumbered}
