@@ -100,7 +100,7 @@
 \setmathfont[Ligatures=TeX]{Latin Modern Math}
 \renewcommand{\familydefault}{\sfdefault}
 
-\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arraystretch}{1.2}
 \onehalfspacing
 
 \renewcommand{\abstractname}{}
@@ -212,6 +212,16 @@ Report Number:}
 \hypertarget{report-overview}{%
 \section{Report Overview}\label{report-overview}}
 
+\emph{NOTE: THIS TEMPLATE IS DESIGNED TO BE GENERAL PURPOSE FOR EITHER OPEN OR CLOSED REPORTS, BUT SECTIONS SHOULD BE REMOVED OR ADDED WHERE NECESSARY.}
+\emph{FOR ALL TABLES, LISTINGS, AND GRAPHS, TWO VERSIONS SHOULD BE PRODUCED: ONE WITH ALL TREATMENT GROUPS POOLED FOR USE IN OPEN REPORTS, AND ONE BY TREATMENT CODE FOR CLOSED REPORTS (PARTIALLY MASKED).}
+\emph{IF DMC CHOOSES TO BE UNBLINDED, LISTINGS SHOULD STILL BE PARTIALLY MASKED (IN CASE DOCUMENTS INADVERTENTLY SHARED WITH OTHER BLINDED TRIAL INVESTIGATORS), BUT CODE MAPPINGS CAN BE PROVIDED DURING REPORT REVIEW.}
+\emph{PARTIALLY MASKED TREATMENT CODES SHOULD BE CONSISTENT ACROSS REPORTS SO THAT CHANGES BY TREATMENT CAN BE MONITORED.}
+\emph{CODE USED TO PRODUCE ALL TABLES, LISTINGS, AND GRAPHS SHOULD BE STORED.}
+
+\emph{GENERALLY, SUMMARIES AND ANALYSES WILL BE BASED ON INTENT-TO-TREAT POPULATION, BUT PER-PROTOCOL/ADHERERS-ONLY ANALYSES MAY ALSO BE OF INTEREST.}
+\emph{ALL MOCK TEXT/FIGURES ARE EXAMPLES ONLY AND SHOULD BE TAILORED TO THE TRIAL AND DMC REQUIREMENTS.}
+\emph{THE DMC CAN RECOMMEND ADDITIONAL DATA DISPLAYS OR CHANGES TO/REMOVAL OF DATA DISPLAYS AS REQUIRED FOR FUTURE REPORTS AS TRIAL PROGRESSES.}
+
 The purpose of this report is to review cumulative enrolment, data quality, and safety data for the subjects enrolled in the ASCOT study.
 This report reflects data from the study database as of {[}DATE{]}.
 Within the body of the report are summary tables of enrolment, demographic characteristics, and adverse events.
@@ -227,27 +237,61 @@ Readers of this report are asked to maintain the confidentiality of the informat
 \hypertarget{response-to-dsmb-recommendations}{%
 \section{Response to DSMB Recommendations}\label{response-to-dsmb-recommendations}}
 
-\emph{Identify DSMB recommendations/requests from the last meeting and clarify how those requests have been handled in the report and/or elsewhere.} \emph{If this is the first DSMB meeting for this protocol or no previous recommendations/requests were made, indicate as such in this section.} \emph{Doing so will provide a future reminder to the author who is likely to use the previous report as a starting point for the subsequent report.}
+\emph{Identify DSMB recommendations/requests from the last meeting and clarify how those requests have been handled in the report and/or elsewhere.}
+\emph{If this is the first DSMB meeting for this protocol or no previous recommendations/requests were made, indicate as such in this section.}
+\emph{Doing so will provide a future reminder to the author who is likely to use the previous report as a starting point for the subsequent report.}
 
 \clearpage
 
 \hypertarget{enrolment-status}{%
 \section{Enrolment Status}\label{enrolment-status}}
 
-\emph{Describe enrolment and provide a summary table (see example below).} \emph{Provide enrolment statistics by site if the study involves multiple sites.} \emph{If the study is enrolling, provide the subject accrual target and estimated time to completion of enrolment.} \emph{A figure showing expected/planned versus actual enrolment may be helpful (see example on next page).}
+\emph{Describe enrolment and provide a summary table.}
+\emph{If stratified randomisation, may look at enrolment by strata.}
+\emph{Provide enrolment statistics by site if the study involves multiple sites.}
+\emph{If the study is still enrolling, provide the subject accrual target and estimated time to completion of enrolment.}
+\emph{A figure showing expected/planned versus actual enrolment may be helpful (see example on next page).}
+
+\emph{If closed report, may stratify enrolment by allocated intervention.}
 
 FLOWCHART
 
-CUMULATIVE ENROLMENT OVER TIME
+\begin{figure}
+\centering
+\includegraphics{skeleton_files/figure-latex/unnamed-chunk-4-1.pdf}
+\caption{\label{fig:unnamed-chunk-4}Cumulative number of trial participants randomised over time.}
+\end{figure}
 
-ENROLMENT BY STUDY SITE
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-5}Participant enrolment by study site.}
+\centering
+\begin{tabular}[t]{l>{\raggedright\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
+\toprule
+Site & Participation Start Date & Screened & Enrolled & Completed Follow-up & Enrolled per month\\
+\midrule
+S001 - Name 1 & xxxx-xx-xx & xx & xx & xx & xx\\
+S002 - Name 2 & xxxx-xx-xx & xx & xx & xx & xx\\
+S003 - Name 3 & xxxx-xx-xx & xx & xx & xx & xx\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering
+\includegraphics{skeleton_files/figure-latex/unnamed-chunk-6-1.pdf}
+\caption{\label{fig:unnamed-chunk-6}Cumulative number of trial participants randomised over time by site.}
+\end{figure}
 
 \clearpage
 
 \hypertarget{participant-status}{%
 \section{Participant Status}\label{participant-status}}
 
-\emph{Describe where patients are in the study in relation to major milestones, such as the number of subjects who have completed day 1, the number on treatment, completed day 28, and the final study visit.} \emph{A summary table providing the study milestones and the number of subjects who have completed those milestones is recommended.} \emph{Also, provide the number of subjects who were terminated and the reason for their termination, such as voluntary withdrawal, death, lost to follow-up, adverse event, or completed the protocol.} \emph{A summary table of subject disposition is also recommended.}
+\emph{Describe where patients are in the study in relation to major milestones, such as the number of subjects who have completed day 1, the number on treatment, completed day 28, and the final study visit.}
+\emph{A summary table providing the study milestones and the number of subjects who have completed those milestones is recommended.}
+\emph{Also, provide the number of subjects who were terminated and the reason for their termination, such as voluntary withdrawal, death, lost to follow-up, adverse event, or completed the protocol.}
+\emph{A summary table of subject disposition is also recommended.}
 
 \emph{It is important to distinguish between subjects who withdrew early from the study and those who discontinued treatment but may or may not still be followed-up.}
 
@@ -263,29 +307,37 @@ ENROLMENT BY STUDY SITE
 \hypertarget{safety}{%
 \section{Safety}\label{safety}}
 
+\emph{Note whether AEs/SAEs are only reported for those specified in relevant protocol.}
+
 \hypertarget{adverse-events}{%
 \subsection{Adverse Events}\label{adverse-events}}
 
-\emph{Summarize or list the adverse events (AEs) that have occurred since the previous DSMB report and over the course of the trial. Provide information on severity and relatedness to treatment and study procedures (see an example of a summary table below). Please ensure that categories summarized match those in the protocol. For instance related/unrelated vs.~the 5 category delineation.}
+\emph{Summarize or list the adverse events (AEs) that have occurred since the previous DSMB report and over the course of the trial.}
+\emph{Provide information on severity (e.g.~none, mild, moderate, severe, life-threatening) and relatedness to protocol treatment and study procedures (see an example of a summary table below) as per protocol.}
+\emph{Ensure that categories summarized match those in the protocol, for instance unrelated/related vs.~3 category (unrelated, possible, related) vs.~5 category delineation (unrelated, unlikely, possible, probable, definite).}
+\emph{State standardised dictionary coding if being used for recording adverse events (e.g.~MedDRA).}
+\emph{Other details may be provided, such as other concomitant medications, additional protocol treatment details, and contributing factors.}
 
-\emph{If closed report, stratify by treatment group}.
+\emph{In the closed report, listings and summaries may be stratified by domain and/or intervention.}.
+\emph{If a participant may receive a combination of treatments (e.g.~factorial trial) note that the same AE may appear under multiple treatments in data summaries, or summarise AEs by combined treatment regimen.}
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-4}Summary of adverse events (AEs).}
+\caption{\label{tab:unnamed-chunk-7}Summary of adverse events (AEs). If exposure sufficient, might present incidence rates per participant and per xxx exposure.}
 \centering
 \begin{tabular}[t]{lrrr}
 \toprule
   & Treatment A & Treatment B & Total\\
 \midrule
 Total & 15 & 16 & 31\\
+Exposure (participant days on study) & 420 & 448 & 868\\
 \addlinespace[0.3em]
-\multicolumn{4}{l}{\textbf{Number of AEs by severity}}\\
+\multicolumn{4}{l}{\textbf{AEs by severity}}\\
 \hspace{1em}Mild & 10 & 10 & 20\\
 \hspace{1em}Moderate & 5 & 5 & 10\\
 \hspace{1em}Severe & 0 & 1 & 1\\
 \addlinespace[0.3em]
-\multicolumn{4}{l}{\textbf{Number of AEs by relatedness}}\\
+\multicolumn{4}{l}{\textbf{AEs by relatedness}}\\
 \hspace{1em}Unrelated & 10 & 10 & 20\\
 \hspace{1em}Unlikely & 5 & 5 & 10\\
 \hspace{1em}Possible & 0 & 0 & 0\\
@@ -295,49 +347,81 @@ Total & 15 & 16 & 31\\
 \end{tabular}
 \end{table}
 
-\begin{longtable}[]{@{}llllllll@{}}
-\caption{Adverse events listing. AE's occurring since last DMSB report highlighted. SAE's italicised.}\tabularnewline
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-8}Comparison of adverse events by preferred term.}
+\centering
+\begin{tabular}[t]{lrrrr}
 \toprule
-Participant ID & Diagnosis & Event & Date & Serious & Severity & Outcome & Relatedness\tabularnewline
+\multicolumn{1}{c}{Preferred Term} & \multicolumn{1}{c}{\makecell[c]{Trt A\\(n = 214)}} & \multicolumn{1}{c}{\makecell[c]{Trt B\\(n = 223)}} & \multicolumn{1}{c}{Relative Risk (95\% CI)} & \multicolumn{1}{c}{p-value}\\
 \midrule
-\endfirsthead
+Term 1 & 10 (4.7) & 15 (6.73) & 0.70 (0.32, 1.51) & 0.36\\
+Term 2 & 63 (29.4) & 30 (13.5) & 2.19 (1.48, 3.24) & <0.01\\
+\bottomrule
+\multicolumn{5}{l}{\textsuperscript{} n: subjects each treatment}\\
+\multicolumn{5}{l}{\textsuperscript{} CI: confidence interval}\\
+\multicolumn{5}{l}{\textsuperscript{} p-value: Chi-square test}\\
+\end{tabular}
+\end{table}
+
+\begin{landscape}\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}}
+\caption{\label{tab:unnamed-chunk-9}Adverse events listings. AE's occurring snice last DSMB report highlighted and SAE's italicised.}\\
 \toprule
-Participant ID & Diagnosis & Event & Date & Serious & Severity & Outcome & Relatedness\tabularnewline
+Participant ID & Diagnosis & Event & Coding & Dates & Serious & Severity & Outcome & Relatedness\\
 \midrule
-\endhead
-Sxxxxx & & & & No & Mild & Unresolved & Unrelated\tabularnewline
-Sxxxxx & & & & No & Moderate & Resolved & Possible\tabularnewline
-\emph{Sxxxxx} & & & & \emph{Yes} & \emph{Severe} & \emph{Resolved} & \emph{Definite}\tabularnewline
+Pxxxxx & xx & xx & xx & xxxx-xx-xx - xxxx-xx-xx & No & Mild & Unresolved & Unrelated\\
+\cellcolor{yellow}{Pxxxxx} & \cellcolor{yellow}{xx} & \cellcolor{yellow}{xx} & \cellcolor{yellow}{xx} & \cellcolor{yellow}{xxxx-xx-xx - xxxx-xx-xx} & \cellcolor{yellow}{No} & \cellcolor{yellow}{Moderate} & \cellcolor{yellow}{Resolved} & \cellcolor{yellow}{Possible}\\
+\cellcolor{yellow}{\em{Pxxxxx}} & \cellcolor{yellow}{\em{xx}} & \cellcolor{yellow}{\em{xx}} & \cellcolor{yellow}{\em{xx}} & \cellcolor{yellow}{\em{xxxx-xx-xx - xxxx-xx-xx}} & \cellcolor{yellow}{\em{Yes}} & \cellcolor{yellow}{\em{Severe}} & \cellcolor{yellow}{\em{Resolved}} & \cellcolor{yellow}{\em{Definite}}\\
 \bottomrule
 \end{longtable}
+\endgroup{}
+\end{landscape}
 
 \hypertarget{serious-adverse-events}{%
 \subsection{Serious Adverse Events}\label{serious-adverse-events}}
 
 \emph{Summarize or list all serious adverse events (SAEs) that have occurred since the previous DSMB report and over the course of the trial.}
 
-\begin{longtable}[]{@{}lllllll@{}}
+\emph{In the closed report, listings will be stratified by domain and/or intervention.}.
+
+\begin{landscape}\begingroup\fontsize{8}{10}\selectfont
+
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{4cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}>{\raggedright\arraybackslash}p{2cm}}
+\caption{\label{tab:unnamed-chunk-10}Serious adverse events listings. SAE's occurring snice last DSMB report highlighted.}\\
 \toprule
-Participant ID & Diagnosis & Event & Date & Severity & Outcome & Relatedness\tabularnewline
+Participant ID & Diagnosis & Event & Coding & Dates & Severity & Outcome & Relatedness\\
 \midrule
-\endhead
-Sxxxxxx & & & & Severe & Resolved & Definite\tabularnewline
+\cellcolor{yellow}{Pxxxxx} & \cellcolor{yellow}{xx} & \cellcolor{yellow}{xx} & \cellcolor{yellow}{xx} & \cellcolor{yellow}{xxxx-xx-xx - xxxx-xx-xx} & \cellcolor{yellow}{Severe} & \cellcolor{yellow}{Resolved} & \cellcolor{yellow}{Definite}\\
 \bottomrule
 \end{longtable}
+\endgroup{}
+\end{landscape}
 
 \clearpage
 
-\hypertarget{outcomes}{%
-\section{Outcomes}\label{outcomes}}
+\hypertarget{protocol-deviations}{%
+\section{Protocol Deviations}\label{protocol-deviations}}
+
+\emph{Summarize or list protocol deviations that have occurred since the previous DSMB report and over the course of the study.}
+\emph{Additionally, report serious breaches of GCP or protocol, e.g.~breach likely to affect safety of participant, reliability of trial generated data.}
+
+The following protocol deviations will be reported:
+- missed visits
+- incorrect dosing or wrongly prescribed study drug or treatment
+- missing primary outcome
+
+\clearpage
+
+\hypertarget{effectiveness}{%
+\section{Effectiveness}\label{effectiveness}}
 
 \hypertarget{primary-outcome}{%
 \subsection{Primary Outcome}\label{primary-outcome}}
 
 \hypertarget{secondary-outcomes}{%
 \subsection{Secondary Outcomes}\label{secondary-outcomes}}
-
-\hypertarget{safety-outcomes}{%
-\subsection{Safety Outcomes}\label{safety-outcomes}}
 
 \clearpage
 
