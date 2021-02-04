@@ -1,0 +1,60 @@
+% \begin{landscape}
+\begin{figure}
+\begin{center}
+  \captionof{figure}{Flowchart of participants' progress through
+    the platform (EXAMPLE ONLY).}
+  % setting the typeface to sans serif and the font size to small
+  % the scope local to the environment
+  \sffamily
+  \footnotesize
+\begin{tikzpicture}[auto,
+  block_center/.style ={rectangle, draw=black, thick, fill=white,
+    text width=10em, text centered, minimum height=4em},
+  block_left/.style ={rectangle, draw=black, thick, fill=white,
+    text width=18em, text ragged, minimum height=4em, inner sep=6pt},
+  block_blank/.style={rectangle, draw=white, thick, fill=white,
+    text width=18em, text ragged, minimum height=4em, inner sep=6pt},
+  line/.style ={draw, thick, -latex', shorten >=0pt}]
+  % outlining the flowchart using the PGF/TikZ matrix funtion
+  \matrix [column sep=5mm,row sep=4mm] {
+    % enrollment - row 1
+    \node [block_center] (screened) {Screened\\(n=xxx)};
+    & \node [block_left] (excluded1) {Excluded (n=xxx): \\
+      a) Did not wish to participate (n=xxx) \\
+      b) Did not show for interview (n=xxx) \\
+      c) Other reasons (n=xxx)}; \\
+    % enrollment - row 2
+    \node [block_center] (assessment) {Assessed for platform eligibility\\(n=xxx)};
+    & \node [block_left] (excluded2) {Excluded(n=xxx): \\
+      a) Inclusion criteria not met (n=xxx) \\
+      b) Exclusion criteria(s) met (n=xxx) \\
+      c) Sought other treatment (n=xxx) \\
+      d) Other reasons (n=xxx)}; \\
+    % enrollment - row 3
+    \node [block_center] (random) {Randomised to at least one domain\\(n=xxx)};
+    & \\
+    % follow-up - row 4
+    \node [block_center] (i_D28) {Day 28 follow-up measurements\\(n=xxx)};
+    & \node [block_left] (i_lfu) {Lost to follow-up (n=xxx): \\
+      a) Withdrew (n=xxx) \\
+      b) Died (n=xxx) \\
+      c) Other (n=xxx)}; \\
+    % analysis - row 5
+    \node [block_center] (i_ana) {Analysed\\(n=xxx)};
+    & \\
+  };% end matrix
+  % connecting nodes with paths
+  \begin{scope}[every path/.style=line]
+    % paths for enrollemnt rows
+    \path (screened)   -- (excluded1);
+    \path (screened)   -- (assessment);
+    \path (assessment) -- (excluded2);
+    \path (assessment) -- (random);
+    \path (random)     -- (i_D28);
+    \path (i_D28)      -- (i_lfu);
+    \path (i_D28)      -- (i_ana);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\end{figure}
+% \end{landscape}

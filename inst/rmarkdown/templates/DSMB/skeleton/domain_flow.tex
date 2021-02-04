@@ -1,0 +1,130 @@
+\begin{landscape}
+\begin{figure}
+\begin{center}
+  \captionof{figure}{Flowchart of participants' assignment in domains (EXAMPLE ONLY).}
+  % setting the typeface to sans serif and the font size to small
+  % the scope local to the environment
+  \sffamily
+  \tiny
+\begin{tikzpicture}[auto,
+  plain/.style={rectangle,draw=none,fill=none,text width=5em,text ragged},
+  block_center/.style ={rectangle, draw=black, thick, fill=white,
+    text width=8em, text centered, minimum height=4em, anchor=center},
+  block_left/.style ={rectangle, draw=black, thick, fill=white,
+    text width=10em, text ragged, minimum height=4em, inner sep=6pt},
+  block_noborder/.style ={rectangle, draw=none, thick, fill=none,
+    text width=4em, text centered, minimum height=0.5cm},
+  block_small/.style ={rectangle, draw=black, thick, fill=none,
+    text width=4em, text centered, minimum height=0.5cm},
+  block_assign/.style ={rectangle, draw=black, thick, fill=white, anchor=north,
+    text width=12em, text ragged, minimum height=3em, inner sep=6pt},
+  block_assign_small/.style ={rectangle, draw=black, thick, fill=white, anchor=north,
+    text width=8em, text ragged, minimum height=3em, inner sep=6pt},
+  line/.style ={draw, thick, -latex', shorten >=0pt}]
+    % platform eligible - row 1
+    \node [block_center,right=1em] (eligible) {Eligible for platform\\(n=xxx)};
+    % domain eligibility - row 2
+    \node [block_assign] (eligibleA) [below left=1cm and 4.5cm of eligible] {Domain A (n=xxx): \\
+      Ineligible: \\
+      \h Reason (n=xxx) \\
+      \h Reason (n=xxx)};
+    \node [block_assign] (eligibleB) [below=1cm of eligible, below=of eligible] {Domain B (n=xxx): \\
+      Ineligible: \\
+      \h Reason (n=xxx) \\
+      \h Reason (n=xxx)};
+    \node [block_assign] (eligibleC) [below right=1cm and 4.5cm of eligible] {Domain C (n=xxx): \\
+      Ineligible: \\
+      \h Reason (n=xxx) \\
+      \h Reason (n=xxx)};
+    % domain labels - row 3
+    \node [block_noborder] (intA0) [below left=0.5cm and 0.25cm of eligibleA] {A0};
+    \node [block_noborder] (intA1) [below=0.5cm of eligibleA] {A1};
+    \node [block_noborder] (intA2) [below right=0.5cm and 0.25cm of eligibleA] {A2};
+    \node [block_noborder] (intB0) [below left=0.5cm and 0.25cm of eligibleB] {B0};
+    \node [block_noborder] (intB1) [below=0.5cm of eligibleB] {B1};
+    \node [block_noborder] (intB2) [below right=0.5cm and 0.25cm of eligibleB] {B2};
+    \node [block_noborder] (intC0) [below left=0.5cm and 0.25cm of eligibleC] {C0};
+    \node [block_noborder] (intC1) [below=0.5cm of eligibleC] {C1};
+    \node [block_noborder] (intC2) [below right=0.5cm and 0.25cm of eligibleC] {C2};
+    % intervention eligible - row 4
+    \node [block_assign_small] (elgA0) [below=0.5cm of intA0] {Eligible (n=xxx) \\ Ineligible: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgA1) [below=0.5cm of intA1] {Eligible (n=xxx) \\ Ineligible: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgA2) [below=0.5cm of intA2] {Eligible (n=xxx) \\ Ineligible: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgB0) [below=0.5cm of intB0] {Eligible (n=xxx) \\ Ineligible: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgB1) [below=0.5cm of intB1] {Eligible (n=xxx) \\ Missing: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgB2) [below=0.5cm of intB2] {Eligible (n=xxx) \\ Missing: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgC0) [below=0.5cm of intC0] {Eligible (n=xxx) \\ Missing: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgC1) [below=0.5cm of intC1] {Eligible (n=xxx) \\ Missing: \\ \h Reason (n=xx)};
+    \node [block_assign_small] (elgC2) [below=0.5cm of intC2] {Eligible (n=xxx) \\ Missing: \\ \h Reason (n=xx)};
+    % domain randomised - row 4
+    \node [block_assign_small] (randA0) [below=1cm of elgA0] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randA1) [below=1cm of elgA1] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randA2) [below=1cm of elgA2] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randB0) [below=1cm of elgB0] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randB1) [below=1cm of elgB1] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randB2) [below=1cm of elgB2] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randC0) [below=1cm of elgC0] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randC1) [below=1cm of elgC1] {Allotted (n=xxx) \\ Received (n=xx)};
+    \node [block_assign_small] (randC2) [below=1cm of elgC2] {Allotted (n=xxx) \\ Received (n=xx)};
+    % domain follow-up- row 5
+    \node [block_assign_small] (fuA0) [below=1cm of randA0] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuA1) [below=1cm of randA1] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuA2) [below=1cm of randA2] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuB0) [below=1cm of randB0] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuB1) [below=1cm of randB1] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuB2) [below=1cm of randB2] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuC0) [below=1cm of randC0] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuC1) [below=1cm of randC1] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    \node [block_assign_small] (fuC2) [below=1cm of randC2] {Available (n=xxx) \\ Missing: \\ \h Yet to each endpoint (n=xx) \\ \h Other (n=xx)};
+    % labels
+    \node [plain] (inteligLab) [left=0.6cm of elgA0] {Intervention\\Eligibility};
+    \node [plain] (eligibleLab) [above=2.25cm of inteligLab] {Domain\\Eligibility};
+    \node [plain] (allocLab) [left=0.6cm of randA0] {Allocation};
+    \node [plain] (fuLab) [left=0.6cm of fuA0] {Day 28 FU};
+  % connecting nodes with paths
+  \begin{scope}[every path/.style=line]
+    % paths for enrollemnt rows
+    \path (eligible) -- (eligibleA);
+    \path (eligible) -- (eligibleB);
+    \path (eligible) -- (eligibleC);
+    \path (eligibleA) -- (intA0);
+    \path (eligibleA) -- (intA1);
+    \path (eligibleA) -- (intA2);
+    \path (eligibleB) -- (intB0);
+    \path (eligibleB) -- (intB1);
+    \path (eligibleB) -- (intB2);
+    \path (eligibleC) -- (intC0);
+    \path (eligibleC) -- (intC1);
+    \path (eligibleC) -- (intC2);
+    \path (intA0) -- (elgA0);
+    \path (intA1) -- (elgA1);
+    \path (intA2) -- (elgA2);
+    \path (intB0) -- (elgB0);
+    \path (intB1) -- (elgB1);
+    \path (intB2) -- (elgB2);
+    \path (intC0) -- (elgC0);
+    \path (intC1) -- (elgC1);
+    \path (intC2) -- (elgC2);
+    \path (elgA0) -- (randA0);
+    \path (elgA1) -- (randA1);
+    \path (elgA2) -- (randA2);
+    \path (elgB0) -- (randB0);
+    \path (elgB1) -- (randB1);
+    \path (elgB2) -- (randB2);
+    \path (elgC0) -- (randC0);
+    \path (elgC1) -- (randC1);
+    \path (elgC2) -- (randC2);
+    \path (randA0) -- (fuA0);
+    \path (randA1) -- (fuA1);
+    \path (randA2) -- (fuA2);
+    \path (randB0) -- (fuB0);
+    \path (randB1) -- (fuB1);
+    \path (randB2) -- (fuB2);
+    \path (randC0) -- (fuC0);
+    \path (randC1) -- (fuC1);
+    \path (randC2) -- (fuC2);
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+\end{figure}
+\end{landscape}

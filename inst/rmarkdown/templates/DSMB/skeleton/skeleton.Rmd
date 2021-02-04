@@ -188,7 +188,13 @@ Readers of this report are asked to maintain the confidentiality of the informat
 
 *If closed report, may stratify enrolment by allocated intervention.*
 
-FLOWCHART
+\begin{center}
+  \input{platform_flow.tex}
+\end{center}
+
+\begin{center}
+  \input{domain_flow.tex}
+\end{center}
 
 ```{r, fig.cap="Cumulative number of trial participants randomised over time.", fig.height=3, fig.width=5, include=TRUE}
 enrol_date <- tibble(Date = sample(seq(as.Date("2020-01-01"), as.Date("2021-01-01"), by = "day"), 50, replace = T)) %>%

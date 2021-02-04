@@ -3,3 +3,5 @@
 .RData
 .Ruserdata
 *.pdf
+*.md5
+*.auxlock

@@ -82,6 +82,15 @@
 \usepackage{flafter}
 \usepackage{enumitem}
 \setlist{nosep}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usepackage{caption}
+\newcommand*{\h}{\hspace{5pt}}% for indentation
+\newcommand*{\hh}{\h\h}% double indentation
+
 \newcommand{\blandscape}{\begin{landscape}}
 \newcommand{\elandscape}{\end{landscape}}
 \usepackage{fancyhdr}
@@ -254,7 +263,13 @@ Readers of this report are asked to maintain the confidentiality of the informat
 
 \emph{If closed report, may stratify enrolment by allocated intervention.}
 
-FLOWCHART
+\begin{center}
+  \input{platform_flow.tex}
+\end{center}
+
+\begin{center}
+  \input{domain_flow.tex}
+\end{center}
 
 \begin{figure}
 \centering
